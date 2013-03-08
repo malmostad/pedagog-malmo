@@ -4,7 +4,7 @@ Wordpress theme for Pedagog Malmö http://malmo.se/pedagog.
 
 The theme is using Malmö stads’s global assets, see http://malmo.se/wag.
 
-For more information about the Pedagog Malmö service, contact pedagogmalmo@malmo.se.
+For more information about Pedagog Malmö, contact pedagogmalmo@malmo.se.
 
 ## Dependencies
 * Wordpress >= 3.5
