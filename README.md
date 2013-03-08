@@ -1,8 +1,8 @@
 Pedagog Malmö
 =============
-Wordpress theme for Pedagog Malmö malmo.se/pedagog.
+Wordpress theme for Pedagog Malmö http://malmo.se/pedagog.
 
-The theme is using Malmö stads’s global assets, see malmo.se/wag.
+The theme is using Malmö stads’s global assets, see http://malmo.se/wag.
 
 For more information about the Pedagog Malmö service, contact pedagogmalmo@malmo.se.
 
