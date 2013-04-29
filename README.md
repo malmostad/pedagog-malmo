@@ -31,5 +31,5 @@ For more information about Pedagog Malmö, contact pedagogmalmo@malmo.se.
   * `.htaccess-example` to `.htaccess`
 * Edit `themes/pedagog-malmo/helpers/config.php`
 
-## Licence
-TBD
+## License
+Released under AGPL version 3.
