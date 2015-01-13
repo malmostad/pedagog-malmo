@@ -1,0 +1,15 @@
+.wrapper, .wrapper-inner {
+  position: relative;
+  max-width: $max-width;
+}
+.wrapper {
+  margin: 0 auto;
+  @include breakpoint($bp-medium) {
+    padding-top: 2em; 
+  }
+}
+.page-template-index-php {
+  .wrapper {
+    padding-top: 0;
+  }
+}

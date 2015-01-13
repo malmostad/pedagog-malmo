@@ -1,0 +1,93 @@
+.comments {
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  & > ul > li {
+    margin: 0;
+    padding: 0.25em 1em 1em;
+    list-style: none;
+    border: 1px solid $border-grey;
+    margin-bottom: 1em;
+  }
+  .children {
+    padding: 1em;
+    border: 1px solid $border-grey;
+    margin-bottom: 1em;
+  }
+  .reply {
+    padding-bottom: 0em;
+    font-family: $secondary-font;
+    a {
+      background: $off-white;
+      padding: 0.5em;
+      @include font-size(1.2);
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+  }
+  .comment-form {
+    @include font-size(1.4);
+    font-family: $secondary-font;
+    p {
+      @include font-size(1.4);
+      font-family: $secondary-font;
+    }
+  }
+  .comment-form-comment {
+    textarea {
+      width: 100%;
+    }
+  }
+  .form-allowed-tags {
+    @extend .meta;
+  }
+}
+.comments-closed {
+  text-align: center; 
+}
+.comment-author {
+  font-family: $secondary-font;
+  color: $grey;
+  padding-bottom: 0.5em;
+  font-style: normal;
+  @extend .meta;
+  a {
+    color: $grey;
+  }
+  img {
+    border-radius: 50%;
+    margin: 0;
+    margin-right: 0.5em;
+    vertical-align: middle;
+  }
+  .fn {
+    line-height: 50px;
+  }
+}
+.comment-respond {
+  border: 1px solid $border-grey;
+  padding: 1em;
+  margin-bottom: 1em;
+  label {
+    font-family: $secondary-font;
+    display: block;
+  }
+  input[type=text] {
+   padding: 0.2em;
+  }
+  textarea {
+    max-width: 100%;
+  }
+}
+#cancel-comment-reply-link {
+  font-family: $secondary-font;
+  color: $grey;
+  text-transform: uppercase;
+  display: inline-block;
+  background: $off-white;
+  &:hover {
+    color: $black;
+  }
+}

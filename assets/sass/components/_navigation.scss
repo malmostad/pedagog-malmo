@@ -1,0 +1,121 @@
+.main-nav {
+  font-family: $secondary-font;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding-top: 1em;
+  text-align: center; 
+  @include breakpoint($bp-medium) {
+    padding-top: 0;
+    float: right;
+    text-align: left; 
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    @include breakpoint($bp-medium) {
+      float: right;
+    }
+  }
+  li {
+    display: inline-block;
+    float: left;
+  }
+  a {
+    font-size: 12px;
+    height: 50px;
+    padding: 0 1.25em;
+    line-height: 50px;
+    display: block;
+  }
+}
+.sub-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  z-index: 10;
+  text-align: left; 
+  @include breakpoint($bp-medium) {
+    position: relative;
+    display: block;
+    z-index: auto;
+  }
+  li {
+    float: none;
+    display: block;
+    @include breakpoint($bp-medium) {
+      float: left;
+    }
+  }
+}
+.menu-mobile {
+  width: 20%;
+  @include breakpoint($bp-medium) {
+    width: auto;
+  }
+}
+.menu-mobile > a {
+  background: $off-white;
+  @include breakpoint($bp-medium) {
+    display: none;
+  }
+}
+.menu-articles {
+  width: 40%;
+  background: $green;
+  @include breakpoint($bp-medium) {
+    width: auto;
+  }
+  &:hover {
+    @include menu-hover($green);
+  }
+}
+.menu-blogs {
+  background: $yellow;
+  width: 40%;
+  @include breakpoint($bp-medium) {
+    width: auto;
+  }
+  &:hover {
+    @include menu-hover($yellow);
+  }
+}
+.menu-movies {
+  background: $purple;
+  &:hover {
+    @include menu-hover($purple);
+  }
+}
+.menu-calendar {
+  background: $blue;
+  &:hover {
+    @include menu-hover($blue);
+  }
+}
+.menu-about-us {
+  background: $off-white;
+  &:hover {
+    @include menu-hover($off-white);
+  }
+}
+.menu-skolledare {
+  background: $off-white;
+  @include breakpoint($bp-medium) {
+    position: relative;
+    top: 10px;
+    margin-left: 0.5em;
+    text-transform: none;
+    font-weight: normal;
+  }
+  &:hover {
+    @include menu-hover($off-white);
+  }
+  a {
+    // height: 40px;
+    // line-height: 40px;
+    @include breakpoint($bp-medium) {
+      height: 40px;
+      line-height: 40px;
+    }
+  }
+}

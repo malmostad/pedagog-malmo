@@ -1,0 +1,92 @@
+.site-slogan {
+  text-align: center;
+  @include font-size(2.1);
+  @include breakpoint($bp-medium) {
+    @include font-size(2.4);
+    text-align: left;
+  }
+  h3 {
+    margin: 0;
+    line-height: 40px;
+    padding-top: 0.5em;
+    @include breakpoint($bp-medium) {
+      line-height: 80px;
+      padding-top: 0;
+    }
+  }
+}
+.search-area {
+  padding: 0.5em;
+
+  @include breakpoint($bp-medium) {
+    padding: 0;
+    padding-top: 1.25em;
+    margin-bottom: 0;
+  }
+  .search {
+    display: flex;
+    @include breakpoint($bp-medium) {
+      display: block;
+      float: right;
+    }
+  }
+  .search-input {
+    flex: 1;
+    padding-left: 0.75em;
+    border: 1px solid $off-white;
+    border-right: 1px solid $border-grey;
+    float: left;
+    height: 36px;
+    line-height: 40px;
+    background-color: $off-white;
+    outline: 0;
+    @include breakpoint($bp-medium) {
+      flex: none;
+    }
+  }
+  .search-submit {
+    padding: 0;
+    margin: 0;
+    height: 40px;
+    width: 40px;
+    line-height: 30px;
+    background: none;
+    border-top: 1px solid $off-white;
+    border-right: 1px solid $off-white;
+    border-bottom: 1px solid $off-white;
+    border-left: none;
+    font-family: 'pedagogmalmo';
+    color: $black;
+    background-color: $off-white;
+  }
+}
+.page-template-index-php, .page-template-page-anonymous {
+  .search-area {
+    .search-input, .search-submit {
+      border-color: $border-grey;
+    }
+  }
+}
+//Search results
+.search-results-header {
+  //font-family: $secondary-font;
+  text-align: center;
+}
+.search-results {
+  .loop-item {
+    margin-left: 0em;
+  }
+}
+.results {
+  margin-top: 2em;
+}
+.search {
+  .loop-item {
+    margin: 0 auto 0.5em auto;
+
+
+    @include breakpoint($bp-medium) {
+      width: 75%;
+    }
+  }
+}

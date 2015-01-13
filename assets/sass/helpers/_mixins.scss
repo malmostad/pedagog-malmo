@@ -1,0 +1,12 @@
+//Font sizes
+@mixin font-size($sizeValue: 1.6) {
+  font-size: ($sizeValue * 10) + px;
+  font-size: $sizeValue * 0.625 + rem;
+}
+@mixin p-margin(){
+  margin-top: 1.125em;
+}
+@mixin menu-hover($bg-color) {
+  background: darken($bg-color, 10);
+  transition: background-color .2s;
+}

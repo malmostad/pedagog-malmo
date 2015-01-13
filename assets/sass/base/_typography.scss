@@ -1,0 +1,25 @@
+body a {
+  color: $black;
+  &:hover {
+    text-decoration: none;
+  }
+}
+.single-content {
+  a {
+    color: #007896;
+  }
+}
+strong {
+  font-weight: bold !important;
+}
+.body-copy {
+  img {
+    height: auto;
+    margin: 1em 0;
+  }
+  blockquote {
+    margin: 2em;
+    font-family: $secondary-font; 
+    @include font-size(1.8);
+  }
+}

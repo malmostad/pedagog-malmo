@@ -1,0 +1,82 @@
+.header {
+  position: relative;
+  margin-top: -5px;
+  //border-bottom: 1px solid $border-grey;
+  background: url(../img/bg_tile.png);
+  background-size: 40px 40px;
+  .wrapper-inner {
+    padding-top: 1em;
+  }
+  @include breakpoint($bp-medium) {
+    .wrapper-inner {
+      padding-top: 3em;
+    }
+  }
+}
+.logo {
+  margin: 0em auto;
+  width: 304px;
+  @include breakpoint($bp-medium) {
+    margin: 0;
+    top: -1em;
+    left: 0em;
+  }
+}
+.logo-img {
+  height: 35px; //To make IE render the SVG correctly.
+}
+.sub-header {
+  font-family: $secondary-font;
+  h3 {
+    margin: 1.25em 0;
+    font-weight: normal;
+  }
+}
+.page-template-page-anonymous {
+  .sub-header {
+    background: $off-white;
+  }
+}
+.post-type-archive-artiklar,
+.post-type-archive-tema,
+.page-template-taxonomy-artikelkategorier-php,
+.single-artiklar {
+  .sub-header {
+    background: $green;
+  }
+}
+.page-template-bloggar-blogindex-php,
+.page-template-bloggar-temabloggar-php,
+.page-template-bloggar-bloggare-php,
+.page-template-taxonomy-theme_blog-php,
+.page-template-category-php,
+.page-template-author-php,
+.single-post {
+  .sub-header {
+    background: $yellow;
+  }
+}
+.filmer {
+  .sub-header {
+    background: $purple;
+    margin-bottom: 1em;
+  }
+}
+.tribe-events-page-template {
+  .sub-header {
+    background: $blue;
+    margin-bottom: 1em;
+  }
+}
+//Move things around to accomodate both WP-admin-bar & Malmö Stads header
+#wpadminbar {
+  position: fixed;
+}
+.admin-bar {
+  #malmo-masthead {
+    top: 45px;
+     @include breakpoint(783px) {
+      top: 30px;
+     }
+  }
+}

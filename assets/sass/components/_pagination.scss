@@ -1,0 +1,28 @@
+.pagination-wrapper {
+  display: block;
+  text-align: center;
+  font-family: $secondary-font;
+  .current {
+    background: $off-white;
+  }
+  .prev {
+    border-radius: 3px 0 0 3px;
+  }
+  .next {
+    border-radius: 0 3px 3px 0;
+  }
+}
+.page-numbers {
+  border: 1px solid $border-grey;
+  margin-left: -1px;
+  padding: 6px 12px;
+  float: left;
+  &:hover {
+    background: $off-white;
+  }
+}
+.dots {
+  &:hover {
+    background: $white;
+  }
+}

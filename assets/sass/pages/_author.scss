@@ -1,0 +1,34 @@
+.blogger-info {
+  padding-top: 0.5em;
+  padding-right: 1em;
+  img {
+    width: 100%;
+    height: 100%;
+    @include breakpoint($bp-medium) {
+      height: 100%;
+      //width: auto;
+    }
+  }
+  h4 {
+    margin-top: 0;
+  }
+}
+.blog-details {
+  font-family: $secondary-font;
+  padding: 0.5em;
+  text-align: center;
+  border-left: 1px solid $border-grey;
+  border-right: 1px solid $border-grey;
+  border-bottom: 1px solid $border-grey;
+  @include breakpoint($bp-medium) {
+    padding: 0.5em;
+    text-align: left;
+  }
+  p {
+    font-size: 13px;
+    line-height: 1.5;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

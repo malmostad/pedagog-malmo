@@ -1,0 +1,51 @@
+.front-articles {
+  h1, h2 {
+    font-weight: normal;
+    margin-top: 0 !important;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  li {
+    display: inline-block;
+  }
+}
+.front-article-big {
+  position: relative;
+  border: 1px solid $border-grey;
+}
+.front-article-big-text {
+  padding: 1.5em;
+}
+.front-article-small-wrapper {
+  @include breakpoint($bp-medium) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+.front-article-small {
+  border-left: 1px solid $border-grey;
+  border-right: 1px solid $border-grey;
+  border-bottom: 1px solid $border-grey;
+  padding: 2em 1.5em;
+  &:first-of-type {
+    border-right: none;
+  }
+  @include breakpoint($bp-medium) {
+    flex: 1;
+  }
+}
+.front-article-big, .front-article-small {
+  &:hover {
+    .post-label{
+      background: darken($green, 5);
+      transition: all .2s;
+    }
+
+  }
+}
+.no-flexbox .front-article-small {
+  //Set fixed min-height for browsers without flexbox - might need tweaking.
+  min-height: 400px;
+}

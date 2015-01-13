@@ -10,8 +10,8 @@ $table_prefix  = '';
 
 
 define ('WPLANG', 'sv_SE');
-define('WP_SITEURL', 'http://webapps2.malmo.se/pedagogmalmo');
-define('WP_HOME',    'http://webapps2.malmo.se/pedagogmalmo');
+define('WP_SITEURL', 'http://pedagog.malmo.se');
+define('WP_HOME',    'http://pedagog.malmo.se');
 
 # Generate new keys at https://api.wordpress.org/secret-key/1.1/salt/
 define('AUTH_KEY',         '+A2Ne8E8|_h=aQTNe0S&qE|WWWJd.Hr+a/2coXb->uL3^;TTtih:-yY:i^TM=<TV');
@@ -32,6 +32,6 @@ define('DISALLOW_FILE_EDIT', true);
 
 
 if ( !defined('ABSPATH') )
-	define('ABSPATH', dirname(__FILE__) . '/');
+  define('ABSPATH', dirname(__FILE__) . '/');
 
 require_once(ABSPATH . 'wp-settings.php');

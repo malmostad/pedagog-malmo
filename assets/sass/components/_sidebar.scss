@@ -1,0 +1,64 @@
+.sidebar {
+  @include breakpoint($bp-medium) {
+    padding-left: 0.5em;
+  }
+}
+.calendar-widget-header {
+  position: relative;
+  background: $blue;
+  font-family: $secondary-font;
+  font-weight: bold;
+  text-transform: uppercase;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 1.125em;
+  span {
+    float: right;
+  }
+  h3 {
+    @include font-size(1.2);
+  }
+}
+.tribe-events-list-widget {
+  padding: 1.125em 1.125em 0.25em;
+  font-family: $secondary-font;
+  border: 1px solid $border-grey;
+  p {
+    @extend .meta;
+  }
+}
+
+//Tubepress
+.widget_tubepress {
+  margin-top: 1em;
+  border-top: 1px solid $border-grey;
+  border-left: 1px solid $border-grey;
+  border-right: 1px solid $border-grey;
+  h3 {
+    @include font-size(1.2);
+    font-family: $secondary-font;
+    background: $purple;
+    margin: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 1.125em;
+  }
+}
+.tubepress_sidebar {
+  border-left: 1px solid $border-grey;
+  border-right: 1px solid $border-grey;
+  border-bottom: 1px solid $border-grey;
+  .tubepress_thumb {
+    float: left;
+    width: 50%;
+    //border: 1px solid red;
+    img {
+      padding: 1em 0.5em;
+      width: 166px;
+      height: 141px;
+
+    }
+  }
+}

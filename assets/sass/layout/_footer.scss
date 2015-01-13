@@ -1,0 +1,33 @@
+.footer {
+  font-family: $secondary-font;
+  margin-top: 4em;
+  background: url(../img/bg_tile.png);
+  background-size: 40px 40px;
+  padding: 0 1em;
+  @include breakpoint($bp-medium) {
+    padding: 0;
+  }
+}
+.footer__wrapper {
+  padding: 4em 0;
+  margin: 0 auto;
+  position: relative;
+  max-width: $max-width;
+}
+.footer-contact {
+  clear: both;
+  padding-top: 1em;
+  @include breakpoint($bp-medium) {
+    clear: none;
+    padding-left: 0.5em;
+    padding-top: 0;
+  }
+}
+.footer-mail {
+  font-weight: bold;
+  color: $green;
+}
+
+.fb-like, .twitter-follow {
+  float: left;
+}

@@ -1,0 +1,199 @@
+.filter-area {
+  font-size: 14px;
+  font-family: $secondary-font;
+  padding: 0.5em;
+}
+.filters-header {
+  @include font-size(1.2); 
+  font-family: $secondary-font;
+  text-transform: uppercase;
+  text-align: center; 
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  li {
+    display: inline-block;
+  }
+}
+.filters-primary, .filters-secondary {
+  a {
+    display: block;
+    height: 50px;
+    padding: 0 1.25em;
+    line-height: 50px;
+  }
+}
+.filters-primary {
+  display: flex;
+  font-weight: bold;
+  @include breakpoint($bp-medium) {
+    display: inline-block;
+    bottom: -1px;
+    float: left; 
+    position: relative; 
+    z-index: 5; 
+  }
+  li {
+    @include breakpoint($bp-medium) {
+      float: left;
+    }
+  }
+}
+.filter-articles, .filter-themes {
+  flex: 2;
+  background: $off-white;
+  @include breakpoint($bp-medium) {
+    flex: none;
+  }
+}
+.filters-secondary {
+  display: flex;
+  @include breakpoint($bp-medium) {
+    float: right;
+    display: inline-block;
+  }
+  li {
+    flex: 3;
+    border-right: 1px solid $border-grey;
+    border-top: 1px solid $border-grey;
+    @include breakpoint($bp-medium) {
+      border: none;
+      flex: none;
+    }
+    &:last-child {
+      border-right: none;
+    }
+  }
+  a {
+    &:last-child {
+      //padding-right: 0;
+    }
+  }
+}
+.active-category {
+  background: $off-white;
+  font-weight: bold;
+  &:hover {}
+}
+.filter-articles, .filter-themes {
+  background: $off-white;
+  &:hover {
+    @include menu-hover($off-white);
+  }
+}
+.post-type-archive-artiklar {
+  .filter-articles {
+    float: left;
+    background: $green;
+  }
+}
+.post-type-archive-tema {
+  .filter-themes {
+    float: left;
+    background: $green;
+  }
+}
+
+.filter-blogs {
+  float: left;
+}
+.filter-theme-blogs, .filter-latest-blog, .filter-bloggers {
+  background: $off-white;
+  &:hover {
+    @include menu-hover($off-white);
+  }
+}
+.active-article-filter {
+  color: $green;
+}
+//The category list
+.filter-categories {
+  text-align: center;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  position: relative; 
+  text-transform: uppercase; 
+  border: 1px solid $border-grey;
+  padding: 0.65em 0.75em 0.85em;
+  margin-top: 0.5em; 
+  &:first-child {
+    margin-top: 0;
+  }
+  &:before {
+    font-family: 'pedagogmalmo';
+    content: '\e800';
+    margin-right: 0.5em;
+    position: absolute;
+    right: 6px; 
+    top: 12px;
+    @include rotate(90deg);
+  }
+  &.closed:before {
+    @include rotate(-90deg);
+  }
+  @include breakpoint($bp-medium) {
+    text-align: left;
+    cursor: inherit;
+    font-weight: bold; 
+    &:before {
+      @include rotate(-90deg);
+    }
+    &.closed:before {
+      @include rotate(90deg);
+    }
+  }
+
+}
+.archive-categories {
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0; 
+  border-left: 1px solid $border-grey;
+  border-right: 1px solid $border-grey;
+  @include breakpoint($bp-medium) {
+    display: block;
+  }
+  li {
+    border-bottom: 1px solid $border-grey;
+    a, span {
+      display: block;
+      padding: 0.65em 0.75em 0.85em;
+      &:hover {
+        background: darken($white, 5);
+      }
+    }
+  }
+}
+//BLOGS
+.filter-latest-blog, .filter-theme-blogs, .filter-bloggers {
+  flex: 3;
+   white-space: nowrap;
+  @include breakpoint($bp-medium) {
+    flex: none;
+  }
+}
+.page-template-bloggar-blogindex-php, .page-template-category-php {
+  .filter-latest-blog {
+    background: $yellow;
+  }
+  .filter-bloggers {
+    //border-left: 1px solid $border-grey;
+  }
+}
+.page-template-bloggar-bloggare-php  {
+  .filter-bloggers {
+   background: $yellow;
+  }
+  .filter-latest-blog {
+    //border-right: 1px solid $border-grey;
+  }
+}
+.page-template-bloggar-temabloggar-php{
+  .filter-theme-blogs {
+   background: $yellow;
+  }
+}

@@ -1,0 +1,57 @@
+.front-blog-posts {
+  @include breakpoint($bp-medium) {
+    padding-right: 0.5em;
+  }
+  article {
+    border-left: 1px solid $border-grey;
+    border-right: 1px solid $border-grey;
+    border-bottom: 1px solid $border-grey;
+    h2 {
+      font-weight: normal;
+    }
+  }
+}
+.temablog-content {
+  padding: 0 2em;
+}
+.front-blog-header {
+  background: $yellow;
+  font-family: $secondary-font;
+  font-weight: bold;
+  text-transform: uppercase;
+  height: 50px;
+  line-height: 50px;
+  padding-left: 1.125em;
+  h3 {
+    @include font-size(1.2);
+  }
+}
+.temablogg-name {
+  display: inline-block;
+  position: relative;
+  font-family: $secondary-font;
+  text-transform: uppercase;
+  @include font-size(1.2);
+  top: 3px;
+  left: 3px;
+  padding: 5px;
+  background: $yellow;
+}
+.temablog-meta {
+  .avatar {
+    border-radius: 50%;
+    float: left;
+    margin-right: 0.5em;
+  }
+  .temablog-author {
+    float: left;
+    line-height: 30px;
+  }
+  .temablog-post-date {
+    float: left;
+    line-height: 30px;
+  }
+  .temablog-categories {
+    clear: both;
+  }
+}

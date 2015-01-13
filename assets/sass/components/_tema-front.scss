@@ -1,0 +1,101 @@
+.theme {
+  border: 1px solid $border-grey; 
+  padding: 0.5em;
+  margin-top: 1em;
+  h1 {
+    text-align: left;
+  }
+}
+.tema-image {
+  position: relative;
+  border-bottom: 0;
+  margin-bottom: 0.5em; 
+  @include clearfix; 
+  img {
+    float: left;
+  }
+}
+.post-type-archive-tema {
+  .tema-image {
+    margin-top: 0;
+  }
+}
+.tema-description {
+  padding: 1.5em 1.5em 1.5em;
+  color: $white;
+  bottom: 0;
+  background: $black;
+  @include breakpoint($bp-medium) {
+    position: absolute;
+    max-width: 50%;
+  }
+  .post-label {
+    background: $off-white;
+    color: $black;
+    position: relative; 
+    left: 0; 
+    display: inline-block;
+    font-weight: normal;
+    margin-bottom: 1.5em;
+    a {
+      color: $black;
+    }
+  }
+  a {
+    color: $white;
+  }
+}
+.tema-posts {
+  border: 1px solid $border-grey; 
+  border-bottom: 0;
+  @include box-sizing(border-box);
+  .row {
+    //border-bottom: 5px solid $off-white;
+  }
+  .loop-item {
+    border: 0;
+  }
+}
+.tema_one, .tema_two {
+  border-bottom: 1px solid $border-grey;
+}
+.tema_one {
+  @include breakpoint($bp-medium) {
+    display: flex; 
+    align-items: stretch;
+  }
+}
+.tema_two {
+  &:first-child {
+    border-right: 1px solid $border-grey;
+  }
+}
+
+.front-tema-post-image {
+  background: #F8F8F8;
+  @include clearfix;
+}
+.attachment-tema-image-front {
+  float: left;
+  width: 100%; 
+}
+
+.front-tema-post {
+  padding: 1.5em;
+  h2 {
+    margin-top: 0 !important;
+  }
+}
+.flex-wrapper {
+  @include breakpoint($bp-medium) {
+    display: flex;
+  }
+}
+.flexbox .border-flex {
+  @include breakpoint($bp-medium) {
+    flex: 1;
+    &:last-child {
+      border-left: 1px solid $border-grey;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+.widget_most_commented_widget {
+  margin-top: 1em;
+  border: 1px solid $border-grey;
+  h3 {
+    margin: 0;
+    @include font-size(1.2);
+    background: $off-white;
+    line-height: 50px;
+    font-family: $secondary-font;
+    padding: 0 1.125em;
+    text-transform: uppercase;
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    @include font-size(1.2);
+    font-family: $secondary-font;
+    border-bottom: 1px solid $off-white;
+    padding: 0.5em 1.125em;
+    &:hover {
+      background: $off-white;
+    }
+  }
+}

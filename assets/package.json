@@ -1,0 +1,24 @@
+{
+  "name": "go_blank_wp",
+  "version": "0.0.1",
+  "description": "GO Blank WP",
+  "main": "gulpfile.js",
+  "devDependencies": {
+    "gulp": "^3.8.7",
+    "gulp-autoprefixer": "0.0.8",
+    "gulp-concat": "^2.2.0",
+    "gulp-imagemin": "^0.2.0",
+    "gulp-jshint": "^1.5.3",
+    "gulp-livereload": "^2.1.1",
+    "gulp-load-plugins": "^0.7.0",
+    "gulp-minify-css": "^0.3.1",
+    "gulp-notify": "^1.2.5",
+    "gulp-rename": "^1.2.0",
+    "gulp-ruby-sass": "^0.4.3",
+    "gulp-uglify": "^0.2.1",
+    "jshint-stylish": "^1.0.0"
+  },
+  "scripts": {},
+  "author": "",
+  "license": ""
+}

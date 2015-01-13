@@ -1,0 +1,17 @@
+.post-404 {
+  text-align: center;
+  margin: 4em 0;
+}
+.error404 {
+  .footer {
+    display: none;
+  }
+  .joke {
+    display: inline-block;
+    font-family: $secondary-font;
+    background: $green;
+    padding: 2em;
+    margin: 1em 0 1.5em;
+    @include font-size(1.4);
+  }
+}

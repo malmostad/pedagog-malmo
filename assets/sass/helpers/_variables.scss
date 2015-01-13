@@ -1,0 +1,26 @@
+//Grid
+$max-width: 1024px;
+//$grid-gap: 15px;
+$grid-gap: 0;
+
+// Breakpoints
+$bp-medium: 768px;
+$bp-large: 920px;
+$bp-max: $max-width;
+// Use like this: @include breakpoint($bp-medium) { }
+
+//Fonts
+$main-font: Georgia, "Droid Serif", "DejaVu Serif", "Bitstream Vera Serif", serif;
+$secondary-font: OpenSans, 'Droid Sans', Verdana, 'DejaVu Sans', 'Bitstream Vera Sans', sans-serif;
+
+//Colors
+$black: #333333;
+$white: #ffffff;
+$off-white: #f8f8f8;
+$light-grey: #eeeeee;
+$border-grey: #eeeeee;
+$grey: #999999;
+$green: #a9dc92;
+$yellow: #f3ec7a;
+$purple: #d798bf;
+$blue: #9dcee0;

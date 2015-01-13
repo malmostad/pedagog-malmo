@@ -1,0 +1,145 @@
+.articles-list, .blogs-list {
+  border: 1px solid $border-grey;
+}
+.loop-item {
+  position: relative;
+  border-bottom: 1px solid $border-grey;
+  @include breakpoint($bp-medium) {
+    border: 1px solid $border-grey;
+    margin: 0.5em 0 0.5em 0.5em;
+  }
+}
+.loop-item--compact {
+  margin: 0;
+  border-top: 0;
+}
+.loop-item--compact .loop-item__inner {
+  padding: 1.5em;
+  h2 {
+    margin-top: 0.5em !important;
+  }
+}
+.loop-item--tema {
+  h2 {
+    margin-top: 0.3em !important;
+  }
+  @include breakpoint($bp-medium) {
+    border: 0;
+    margin: 0.5em;
+  }
+}
+.content {
+  padding: 1em 0.75em 1.25em;
+  @include breakpoint($bp-medium){
+    padding: 1em 1.5em 1.5em;
+  }
+  h2 {
+    margin-top: 0.75em !important;
+  }
+}
+.loop-item--themeblog {
+  .row { 
+    .blog-image {
+      background: $off-white;
+    }
+  }
+  h2 {
+    margin-top: 0.25em !important;
+  }
+  @include breakpoint($bp-medium){
+    .row {
+      display: flex; 
+      align-items: stretch;
+    }
+  }
+}
+.has-post-thumbnail  {
+  .content {
+    padding: 0.25em 0.75em 1.25em;
+    @include breakpoint($bp-medium){
+      padding: 0.25em 1.5em 1.5em;
+    }
+  } 
+}
+.page-template-search-php {
+  .content {
+    padding: 1em 0.75em 1.25em;
+    @include breakpoint($bp-medium){
+      padding: 1em 1.5em 1.5em;
+    }
+    h2 {
+      margin-top: 0.75em !important;
+    }
+  } 
+}
+.loop-item-small {
+  .content {
+    @include breakpoint($bp-medium){
+      padding: 1em;
+    }
+    h4 {
+      margin: 0;
+    }
+  }
+}
+.page-template-artiklar-viewed-php {
+  .most-read-articles {
+    color: $green;
+  }
+}
+.page-template-archive-artiklar-php {
+  .latest-articles {
+   color: $green;
+  }
+}
+.page-template-artiklar-discussed-php {
+  .most-discussed-articles {
+   color: $green;
+  }
+}
+.post-label, .video-label, .blogs-label {
+  position: absolute;
+  font-family: $secondary-font;
+  font-weight: bold;
+  white-space: nowrap;
+  z-index: 100;
+  text-transform: uppercase;
+  @include font-size(1.1);
+  top: 2px;
+  left: 2px;
+  padding: 2px 3px;
+}
+.post-label {
+  background: $green;
+}
+.video-label {
+  background: $purple;
+}
+.blogs-label {
+  background: $yellow;
+}
+.post__featureimage {
+  position: relative; 
+  z-index: 0;
+  display: block;
+  background: #F8F8F8;
+  text-align: center; 
+  img {
+    max-height: 354px;
+  }
+}
+//Temabloggar
+.blog-item {
+  margin: 0.5em;
+}
+.blog-image {
+  img {
+    height: 100%;
+  }
+  .temablogg-name {
+    position: absolute;
+  }
+}
+.theme-blog-info {
+  //padding: 0 2em;
+}
