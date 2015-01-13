@@ -10,8 +10,7 @@ get_header(); ?>
       <div class="container">
         <div class="row">
           <div class="col-sm-12">
-           <?php
-            $theme_blogs = $wpdb->get_results("SELECT t.* , tt.* FROM $wpdb->terms AS t INNER JOIN $wpdb->term_taxonomy AS tt ON t.term_id = tt.term_id WHERE tt.taxonomy = 'theme_blog' ORDER BY t.name");
+           <?php $theme_blogs = get_from_db('blogs');
             foreach ( $theme_blogs as $theme_blog ) :
               $images = get_tax_meta( $theme_blog->term_id, 'profile_image');
               if (!empty($images[id])) {

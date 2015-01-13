@@ -12,6 +12,12 @@ require_once('helpers/Cache.php');
 require_once('helpers/CacheApc.php');
 require_once('helpers/RemoteAsset.php');
 require_once('helpers.php');
+
+require_once('custom/comments.php');
+require_once('custom/comment_form.php');
+require_once('custom/tinymce.php');
+require_once('custom/yarpp.php');
+
 /* Advanced Custom Fields */
 define( 'ACF_LITE', true ); // Comment out to gain access to AFC GUI in admin
 require_once('afc/teman.php');
@@ -22,31 +28,31 @@ require_once('afc/kategori.php');
 \*------------------------------------*/
 
 if (!isset($content_width)) {
-    $content_width = 1024;
+  $content_width = 1024;
 }
 
 if (function_exists('add_theme_support')) {
-    // Add Menu Support
-    add_theme_support('menus');
+  // Add Menu Support
+  add_theme_support('menus');
 
-    // Add Thumbnail Theme Support
-    add_theme_support('post-thumbnails');
-    // WYSIWYG SIZES
-    add_image_size('large', 750, '', false); // Large Thumbnail
-    add_image_size('medium', 236, 150, true); // Medium Thumbnail
-    add_image_size('small', 120, '', true); // Small Thumbnail
-    // THEME SIZES
-    add_image_size('article-front', 768, 768, true);
+  // Add Thumbnail Theme Support
+  add_theme_support('post-thumbnails');
+  // WYSIWYG SIZES
+  add_image_size('large', 750, '', false); // Large Thumbnail
+  add_image_size('medium', 236, 150, true); // Medium Thumbnail
+  add_image_size('small', 120, '', true); // Small Thumbnail
+  // THEME SIZES
+  add_image_size('article-front', 768, 768, true);
 
-    add_image_size('loop-image-large', 770, 360, true);
-    add_image_size('tema-image-large', 1024, 534, true);
-    add_image_size('tema-image-front', 768, 510, true);
+  add_image_size('loop-image-large', 770, 360, true);
+  add_image_size('tema-image-large', 1024, 534, true);
+  add_image_size('tema-image-front', 768, 510, true);
 
-    // Enables post and comment RSS feed links to head
-    add_theme_support('automatic-feed-links');
+  // Enables post and comment RSS feed links to head
+  add_theme_support('automatic-feed-links');
 
-    // Localisation Support
-    load_theme_textdomain('pedagog', get_template_directory() . '/languages');
+  // Localisation Support
+  load_theme_textdomain('pedagog', get_template_directory() . '/languages');
 }
 
 /*------------------------------------*\
@@ -79,227 +85,220 @@ function pedagog_nav() {
 
 // Load HTML5 Blank scripts (header.php)
 function pedagog_header_scripts() {
-    if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
-        global $mconfig;
+  if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
+    global $mconfig;
 
 
-        wp_register_script('modernizr', get_template_directory_uri() . '/js/lib/modernizr-2.7.1.min.js', array(), '2.7.1'); // Modernizr
-        wp_enqueue_script('modernizr'); // Enqueue it!
+    wp_register_script('modernizr', get_template_directory_uri() . '/js/lib/modernizr-2.7.1.min.js', array(), '2.7.1'); // Modernizr
+    wp_enqueue_script('modernizr'); // Enqueue it!
 
-        wp_register_script('pedagogplugins', get_template_directory_uri() . '/js/plugins.min.js', array('jquery'), '1.0.0'); // Custom scripts
-        wp_enqueue_script('pedagogplugins'); // Enqueue it!
+    wp_register_script('pedagogplugins', get_template_directory_uri() . '/js/plugins.min.js', array('jquery'), '1.0.1'); // Custom scripts
+    wp_enqueue_script('pedagogplugins'); // Enqueue it!
 
-        wp_register_script('pedagogscripts', get_template_directory_uri() . '/js/scripts.min.js', array('jquery'), '1.0.0'); // Custom scripts
-        wp_enqueue_script('pedagogscripts'); // Enqueue it!
+    wp_register_script('pedagogscripts', get_template_directory_uri() . '/js/scripts.min.js', array('jquery'), '1.0.1'); // Custom scripts
+    wp_enqueue_script('pedagogscripts'); // Enqueue it!
 
-        //Malmö stad assets - external JS.
-        wp_register_script('malmo-js', $mconfig['asset_host'] . 'malmo.js', false, '1.0.0', true);
-        wp_enqueue_script('malmo-js');
-
-    }
+    //Malmö stad assets - external JS.
+    wp_register_script('malmo-js', $mconfig['asset_host'] . 'malmo.js', false, '1.0.0', true);
+    wp_enqueue_script('malmo-js');
+  }
 }
+
 // Load HTML5 Blank conditional scripts
 function pedagog_conditional_scripts() {
-
-    if (is_page('pagenamehere')) {
-        wp_register_script('scriptname', get_template_directory_uri() . '/js/scriptname.js', array('jquery'), '1.0.0'); // Conditional script(s)
-        wp_enqueue_script('scriptname'); // Enqueue it!
-    }
+  if (is_page('pagenamehere')) {
+    wp_register_script('scriptname', get_template_directory_uri() . '/js/scriptname.js', array('jquery'), '1.0.0'); // Conditional script(s)
+    wp_enqueue_script('scriptname'); // Enqueue it!
+  }
 }
 
 // Load HTML5 Blank styles
 function pedagog_styles() {
-    global $mconfig;
+  global $mconfig;
 
-    wp_register_style('pedagog', get_template_directory_uri() . '/css/style.min.css', array(), '1.0', 'all');
-    wp_enqueue_style('pedagog'); // Enqueue it!
+  wp_register_style('pedagog', get_template_directory_uri() . '/css/style.min.css', array(), '1.0.1', 'all');
+  wp_enqueue_style('pedagog'); // Enqueue it!
 
-    //Malmö stad assets - external css
-    wp_register_style('malmo-css', $mconfig['asset_host'] . 'malmo.css', array(), '1.0', 'all');
-    wp_enqueue_style('malmo-css');
+  //Malmö stad assets - external css
+  wp_register_style('malmo-css', $mconfig['asset_host'] . 'malmo.css', array(), '1.0', 'all');
+  wp_enqueue_style('malmo-css');
 }
 
 // Register HTML5 Blank Navigation
 function register_html5_menu() {
-    register_nav_menus(array( // Using array to specify more menus if needed
-        'header-menu' => __('Header Menu', 'pedagog'), // Main Navigation
-        'sidebar-menu' => __('Sidebar Menu', 'pedagog'), // Sidebar Navigation
-        'extra-menu' => __('Extra Menu', 'pedagog') // Extra Navigation if needed (duplicate as many as you need!)
-    ));
+  register_nav_menus(array( // Using array to specify more menus if needed
+    'header-menu' => __('Header Menu', 'pedagog'), // Main Navigation
+    'sidebar-menu' => __('Sidebar Menu', 'pedagog'), // Sidebar Navigation
+    'extra-menu' => __('Extra Menu', 'pedagog') // Extra Navigation if needed (duplicate as many as you need!)
+  ));
 }
 
 // Remove the <div> surrounding the dynamic navigation to cleanup markup
 function my_wp_nav_menu_args($args = '') {
-    $args['container'] = false;
-    return $args;
+  $args['container'] = false;
+  return $args;
 }
 
 // Remove Injected classes, ID's and Page ID's from Navigation <li> items
 function my_css_attributes_filter($var) {
-    return is_array($var) ? array() : '';
+  return is_array($var) ? array() : '';
 }
 
 // Remove invalid rel attribute values in the categorylist
 function remove_category_rel_from_category_list($thelist) {
-    return str_replace('rel="category tag"', 'rel="tag"', $thelist);
+  return str_replace('rel="category tag"', 'rel="tag"', $thelist);
 }
 
 // Add page slug to body class, love this - Credit: Starkers Wordpress Theme
 function add_slug_to_body_class($classes) {
-    global $post;
-    if (is_home()) {
-        $key = array_search('blog', $classes);
-        if ($key > -1) {
-            unset($classes[$key]);
-        }
-    } elseif (is_page()) {
-        $classes[] = sanitize_html_class($post->post_name);
-    } elseif (is_singular()) {
-        $classes[] = sanitize_html_class($post->post_name);
-    }
+  global $post;
+  if (is_home()) {
+      $key = array_search('blog', $classes);
+      if ($key > -1) {
+          unset($classes[$key]);
+      }
+  } elseif (is_page()) {
+      $classes[] = sanitize_html_class($post->post_name);
+  } elseif (is_singular()) {
+      $classes[] = sanitize_html_class($post->post_name);
+  }
 
-    return $classes;
+  return $classes;
 }
 
 // If Dynamic Sidebar Exists
 if (function_exists('register_sidebar')) {
-    // Define Sidebar Widget Area 1
-    register_sidebar(array(
-        'name' => __('Widget Area 1', 'pedagog'),
-        'description' => __('Description for this widget-area...', 'pedagog'),
-        'id' => 'widget-area-1',
-        'before_widget' => '<div id="%1$s" class="%2$s">',
-        'after_widget' => '</div>',
-        'before_title' => '<h3>',
-        'after_title' => '</h3>'
-    ));
+  // Define Sidebar Widget Area 1
+  register_sidebar(array(
+    'name' => __('Widget Area 1', 'pedagog'),
+    'description' => __('Description for this widget-area...', 'pedagog'),
+    'id' => 'widget-area-1',
+    'before_widget' => '<div id="%1$s" class="%2$s">',
+    'after_widget' => '</div>',
+    'before_title' => '<h3>',
+    'after_title' => '</h3>'
+  ));
 
-    // Define Sidebar Widget Area 2
-    register_sidebar(array(
-        'name' => __('Widget Area 2', 'pedagog'),
-        'description' => __('Description for this widget-area...', 'pedagog'),
-        'id' => 'widget-area-2',
-        'before_widget' => '<div id="%1$s" class="%2$s">',
-        'after_widget' => '</div>',
-        'before_title' => '<h3>',
-        'after_title' => '</h3>'
-    ));
+  // Define Sidebar Widget Area 2
+  register_sidebar(array(
+    'name' => __('Widget Area 2', 'pedagog'),
+    'description' => __('Description for this widget-area...', 'pedagog'),
+    'id' => 'widget-area-2',
+    'before_widget' => '<div id="%1$s" class="%2$s">',
+    'after_widget' => '</div>',
+    'before_title' => '<h3>',
+    'after_title' => '</h3>'
+  ));
 }
 
 // Remove wp_head() injected Recent Comment styles
 function my_remove_recent_comments_style() {
-    global $wp_widget_factory;
-    remove_action('wp_head', array(
-        $wp_widget_factory->widgets['WP_Widget_Recent_Comments'],
-        'recent_comments_style'
-    ));
+  global $wp_widget_factory;
+  remove_action('wp_head', array(
+    $wp_widget_factory->widgets['WP_Widget_Recent_Comments'],
+    'recent_comments_style'
+  ));
 }
 
 // Pagination for paged posts, Page 1, Page 2, Page 3, with Next and Previous Links, No plugin
 function html5wp_pagination() {
-    global $wp_query;
-    $big = 999999999;
-    echo paginate_links(array(
-        'base' => str_replace($big, '%#%', get_pagenum_link($big)),
-        'format' => '?paged=%#%',
-        'current' => max(1, get_query_var('paged')),
-        'total' => $wp_query->max_num_pages
-    ));
+  global $wp_query;
+  $big = 999999999;
+  echo paginate_links(array(
+    'base' => str_replace($big, '%#%', get_pagenum_link($big)),
+    'format' => '?paged=%#%',
+    'current' => max(1, get_query_var('paged')),
+    'total' => $wp_query->max_num_pages
+  ));
 }
 
 // Custom Excerpts
 // Create 20 Word Callback for Index page Excerpts, call using html5wp_excerpt('html5wp_index');
 function html5wp_index($length) {
-    return 20;
+  return 20;
 }
 
 // Create 40 Word Callback for Custom Post Excerpts, call using html5wp_excerpt('html5wp_custom_post');
 function html5wp_custom_post($length) {
-    return 40;
+  return 40;
 }
 
 // Create the Custom Excerpts callback
 function html5wp_excerpt($length_callback = '', $more_callback = '') {
-    global $post;
-    if (function_exists($length_callback)) {
-        add_filter('excerpt_length', $length_callback);
-    }
-    if (function_exists($more_callback)) {
-        add_filter('excerpt_more', $more_callback);
-    }
-    $output = get_the_excerpt();
-    $output = apply_filters('wptexturize', $output);
-    $output = apply_filters('convert_chars', $output);
-    $output = '<p>' . $output . '</p>';
-    echo $output;
+  global $post;
+  if (function_exists($length_callback)) {
+    add_filter('excerpt_length', $length_callback);
+  }
+  if (function_exists($more_callback)) {
+    add_filter('excerpt_more', $more_callback);
+  }
+  $output = get_the_excerpt();
+  $output = apply_filters('wptexturize', $output);
+  $output = apply_filters('convert_chars', $output);
+  $output = '<p>' . $output . '</p>';
+  echo $output;
 }
 
 // Custom View Article link to Post
 function html5_blank_view_article($more) {
-    global $post;
-    //return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('View Article', 'pedagog') . '</a>';
-    return '...';
+  global $post;
+  //return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('View Article', 'pedagog') . '</a>';
+  return '...';
 }
 
 // Remove Admin bar
 function remove_admin_bar() {
-    return false;
+  return false;
 }
 
 // Remove 'text/css' from our enqueued stylesheet
-function html5_style_remove($tag)
-{
-    return preg_replace('~\s+type=["\'][^"\']++["\']~', '', $tag);
+function html5_style_remove($tag) {
+  return preg_replace('~\s+type=["\'][^"\']++["\']~', '', $tag);
 }
 
 // Remove thumbnail width and height dimensions that prevent fluid images in the_thumbnail
-function remove_thumbnail_dimensions( $html )
-{
-    $html = preg_replace('/(width|height)=\"\d*\"\s/', "", $html);
-    return $html;
+function remove_thumbnail_dimensions( $html ) {
+  $html = preg_replace('/(width|height)=\"\d*\"\s/', "", $html);
+  return $html;
 }
 
 // Custom Gravatar in Settings > Discussion
-function pedagoggravatar ($avatar_defaults)
-{
-    $myavatar = get_template_directory_uri() . '/img/gravatar.jpg';
-    $avatar_defaults[$myavatar] = "Custom Gravatar";
-    return $avatar_defaults;
+function pedagoggravatar ($avatar_defaults) {
+  $myavatar = get_template_directory_uri() . '/img/gravatar.jpg';
+  $avatar_defaults[$myavatar] = "Custom Gravatar";
+  return $avatar_defaults;
 }
 
-
 /**
- * Custo exceprt outside the loop. Used for tema posts.
+ * Custom exceprt outside the loop. Used for tema posts.
  * @param  [type] $text    [description]
  * @param  [type] $excerpt [description]
  * @return [type]          [description]
  */
 function pedagog_custom_excerpt($text, $excerpt){
-   if ($excerpt) return $excerpt;
+  if ($excerpt) return $excerpt;
 
-   $text = strip_shortcodes( $text );
+  $text = strip_shortcodes( $text );
 
-   $text = apply_filters('the_content', $text);
-   $text = str_replace(']]>', ']]&gt;', $text);
-   $text = strip_tags($text);
-   $excerpt_length = apply_filters('excerpt_length', 30);
-   $excerpt_more = apply_filters('excerpt_more', ' ' . '[...]');
-   $words = preg_split("/[\n\r\t ]+/", $text, $excerpt_length + 1, PREG_SPLIT_NO_EMPTY);
-   if ( count($words) > $excerpt_length ) {
-           array_pop($words);
-           $text = implode(' ', $words);
-           $text = $text . $excerpt_more;
-   } else {
-           $text = implode(' ', $words);
-   }
-
-   return apply_filters('wp_trim_excerpt', $text, $raw_excerpt);
+  $text = apply_filters('the_content', $text);
+  $text = str_replace(']]>', ']]&gt;', $text);
+  $text = strip_tags($text);
+  $excerpt_length = apply_filters('excerpt_length', 30);
+  $excerpt_more = apply_filters('excerpt_more', ' ' . '[...]');
+  $words = preg_split("/[\n\r\t ]+/", $text, $excerpt_length + 1, PREG_SPLIT_NO_EMPTY);
+  if ( count($words) > $excerpt_length ) {
+    array_pop($words);
+    $text = implode(' ', $words);
+    $text = $text . $excerpt_more;
+  } else {
+    $text = implode(' ', $words);
+  }
+  return apply_filters('wp_trim_excerpt', $text);
 }
 
-/*-------------- TEMP FRÅN GAMLA TEMAT -------------------*/
+/*-------------- From the old theme -------------------*/
 
-
-/* New taxonomy "metadata" */
+/* Theme blog taxonomy "metadata" */
 function create_theme_blog_taxonomies() {
   register_taxonomy('theme_blog', array('post'), array(
     'hierarchical' => true,
@@ -368,8 +367,17 @@ function theme_blog_meta($id) {
   }
 }
 
-/*------END-------- TEMP FRÅN GAMLA TEMAT ----------END------*/
+/*------END-------- From the old theme ----------END------*/
 
+function get_from_db($type) {
+  global $wpdb;
+  if ($type == 'blogs') {
+    return $wpdb->get_results("SELECT t.* , tt.* FROM $wpdb->terms AS t INNER JOIN $wpdb->term_taxonomy AS tt ON t.term_id = tt.term_id WHERE tt.taxonomy = 'theme_blog' ORDER BY t.name");
+  }
+  if ($type == 'authors') {
+    return $wpdb->get_results("SELECT users.ID, users.user_login FROM users WHERE users.user_login != 'admin' ORDER BY users.display_name");
+  }
+}
 /**
  * Print the current week number
  * @return [type] [description]
@@ -386,27 +394,27 @@ function get_sub_header_text() {
   global $wp_query, $post;
   $theme_blog = theme_blog_meta($post->ID);
   $autorID = get_the_author_meta('ID');
-  $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+  $actual_link = home_url(add_query_arg(array()));
 
   if(is_search()){
     echo get_bloginfo('description');
   }elseif(is_tax('artikelkategorier')){
     echo '<a class="button__back" href="/artiklar"></a>';
     single_cat_title( '', true );
-    echo '<a class="rss-feed" href="'. $actual_link . '/feed"></a>';
+    echo '<a class="rss-feed" href="'. esc_url($actual_link) . '/feed"></a>';
   }elseif(is_category()){
     echo '<a class="button__back" href="/bloggar"></a>';
     single_cat_title( '', true );
-    echo '<a class="rss-feed" href="'. $actual_link . '/feed"></a>';
+    echo '<a class="rss-feed" href="'. esc_url($actual_link) . '/feed"></a>';
   }elseif(is_front_page() && !$wp_query->query['post_type'] == 'post'){
     echo '<a href="/">' .  get_bloginfo('description') . '</a>';
   }elseif (is_author()) {
     echo '<a class="button__back" href="/bloggare"></a>';
     echo author_name($autorID);
-    echo '<a class="rss-feed" href="'. $actual_link . '/feed"></a>';
+    echo '<a class="rss-feed" href="'. esc_url($actual_link) . '/feed"></a>';
   }elseif ( isset($wp_query->query['theme_blog']) ){
     echo '<a class="button__back" href="/bloggar"></a><a href="' . get_bloginfo('url') . '/theme_blog/' . $theme_blog[0]->slug . '">' . $wp_query->queried_object->name . '</a>';
-    echo '<a class="rss-feed" href="'. $actual_link . '/feed"></a>';
+    echo '<a class="rss-feed" href="'. esc_url($actual_link) . '/feed"></a>';
   }elseif(!empty($theme_blog[0]->name)){
     echo '<a class="button__back" href="/bloggar"></a><a href="' . get_bloginfo('url') . '/theme_blog/' . $theme_blog[0]->slug . '">' . $theme_blog[0]->name . '</a>';
   }elseif ( is_post_type_archive('artiklar') || get_post_type() == 'artiklar' || is_post_type_archive('tema') || is_tax( 'artikelkategorier' ) ) {
@@ -438,7 +446,7 @@ function get_the_categories($category_type) {
   if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
     $count = count( $terms );
     $subjects = [];
-    $term_list = '<div id="filter-categories" class="filter-categories"><span>Verksamhet</span></div>';
+    $term_list = '<div class="filter-categories"><span>Verksamhet</span></div>';
     $term_list .= '<ul class="archive-categories">';
     foreach ( $terms as $term ) {
       $isSubject = get_field('is_subject', $term)[0];
@@ -455,7 +463,7 @@ function get_the_categories($category_type) {
       $term_list .= '</li>';
     }
     $term_list .= '</ul>';
-    $term_list .= '<div id="filter-categories" class="filter-categories"><span>Ämnen</span></div>';
+    $term_list .= '<div class="filter-categories"><span>Ämnen</span></div>';
     $term_list .= '<ul class="archive-categories">';
     foreach ( $subjects as $term ) {
       $term_list .= '<li>';
@@ -477,16 +485,16 @@ function get_the_categories($category_type) {
  * @return [type]         [description]
  */
 function pedagog_set_post_views($postID) {
-    $count_key = 'pedagog_post_views_count';
-    $count = get_post_meta($postID, $count_key, true);
-    if($count==''){
-        $count = 0;
-        delete_post_meta($postID, $count_key);
-        add_post_meta($postID, $count_key, '0');
-    }else{
-        $count++;
-        update_post_meta($postID, $count_key, $count);
-    }
+  $count_key = 'pedagog_post_views_count';
+  $count = get_post_meta($postID, $count_key, true);
+  if($count==''){
+    $count = 0;
+    delete_post_meta($postID, $count_key);
+    add_post_meta($postID, $count_key, '0');
+  }else{
+    $count++;
+    update_post_meta($postID, $count_key, $count);
+  }
 }
 //To keep the count accurate, lets get rid of prefetching
 remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
@@ -553,78 +561,78 @@ add_shortcode('html5_shortcode_demo_2', 'html5_shortcode_demo_2'); // Place [htm
 \*------------------------------------*/
 
 function create_post_type_pedagog_article() {
-    register_taxonomy_for_object_type('category', 'artikel'); // Register Taxonomies for Category
-    register_taxonomy_for_object_type('post_tag', 'artikel');
-    register_post_type('artiklar', // Register Custom Post Type
-        array(
-        'yarpp_support' => true,
-        'labels' => array(
-            'name' => __('Artiklar', 'pedagog'), // Rename these to suit
-            'singular_name' => __('Artikel', 'pedagog'),
-            'add_new' => __('Skapa ny', 'pedagog'),
-            'add_new_item' => __('Skapa ny artikel', 'pedagog'),
-            'edit' => __('Redigera', 'pedagog'),
-            'edit_item' => __('Redigera artikel', 'pedagog'),
-            'new_item' => __('Ny artikel', 'pedagog'),
-            'view' => __('Visa artikel', 'pedagog'),
-            'view_item' => __('Visa artikel', 'pedagog'),
-            'search_items' => __('Sök artikel', 'pedagog'),
-            'not_found' => __('Inga artiklar hittade', 'pedagog'),
-            'not_found_in_trash' => __('Inga artiklar hittade i papperskorgen', 'pedagog')
-        ),
-        'public' => true,
-        'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
-        'has_archive' => true,
-        'capability_type'    => 'page',
-        'supports' => array(
-            'title',
-            'editor',
-            'excerpt',
-            'comments',
-            'thumbnail'
-        ), // Go to Dashboard Custom HTML5 Blank post for supports
-        'can_export' => true, // Allows export in Tools > Export
-        'taxonomies' => array(
-            'post_tag',
-            'category'
-        ) // Add Category and Post Tags support
-    ));
+  register_taxonomy_for_object_type('category', 'artikel'); // Register Taxonomies for Category
+  register_taxonomy_for_object_type('post_tag', 'artikel');
+  register_post_type('artiklar', // Register Custom Post Type
+    array(
+    'yarpp_support' => true,
+    'labels' => array(
+      'name' => __('Artiklar', 'pedagog'), // Rename these to suit
+      'singular_name' => __('Artikel', 'pedagog'),
+      'add_new' => __('Skapa ny', 'pedagog'),
+      'add_new_item' => __('Skapa ny artikel', 'pedagog'),
+      'edit' => __('Redigera', 'pedagog'),
+      'edit_item' => __('Redigera artikel', 'pedagog'),
+      'new_item' => __('Ny artikel', 'pedagog'),
+      'view' => __('Visa artikel', 'pedagog'),
+      'view_item' => __('Visa artikel', 'pedagog'),
+      'search_items' => __('Sök artikel', 'pedagog'),
+      'not_found' => __('Inga artiklar hittade', 'pedagog'),
+      'not_found_in_trash' => __('Inga artiklar hittade i papperskorgen', 'pedagog')
+    ),
+    'public' => true,
+    'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
+    'has_archive' => true,
+    'capability_type'    => 'page',
+    'supports' => array(
+      'title',
+      'editor',
+      'excerpt',
+      'comments',
+      'thumbnail'
+    ), // Go to Dashboard Custom HTML5 Blank post for supports
+    'can_export' => true, // Allows export in Tools > Export
+    'taxonomies' => array(
+      'post_tag',
+      'category'
+    ) // Add Category and Post Tags support
+  ));
 }
 function create_post_type_pedagog_tema() {
-    register_taxonomy_for_object_type('category', 'tema'); // Register Taxonomies for Category
-    register_taxonomy_for_object_type('post_tag', 'tema');
-    register_post_type('tema', // Register Custom Post Type
-        array(
-        'labels' => array(
-            'name' => __('Teman', 'pedagog'), // Rename these to suit
-            'singular_name' => __('Tema', 'pedagog'),
-            'add_new' => __('Skapa ny', 'pedagog'),
-            'add_new_item' => __('Skapa nytt tema', 'pedagog'),
-            'edit' => __('Redigera', 'pedagog'),
-            'edit_item' => __('Redigera tema', 'pedagog'),
-            'new_item' => __('Nytt tema', 'pedagog'),
-            'view' => __('Visa tema', 'pedagog'),
-            'view_item' => __('Visa tema', 'pedagog'),
-            'search_items' => __('Sök teman', 'pedagog'),
-            'not_found' => __('Inga teman hittade', 'pedagog'),
-            'not_found_in_trash' => __('Inga teman hittade i papperskorgen', 'pedagog')
-        ),
-        'public' => true,
-        'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
-        'has_archive' => true,
-        'capability_type'    => 'page',
-        'supports' => array(
-            'title',
-            'editor',
-            'excerpt',
-            'thumbnail'
-        ), // Go to Dashboard Custom HTML5 Blank post for supports
-        'can_export' => true, // Allows export in Tools > Export
-        'taxonomies' => array(
-            'post_tag',
-            'category'
-        ) // Add Category and Post Tags support
-    ));
+  register_taxonomy_for_object_type('category', 'tema'); // Register Taxonomies for Category
+  register_taxonomy_for_object_type('post_tag', 'tema');
+  register_post_type('tema', // Register Custom Post Type
+    array(
+    'labels' => array(
+      'name' => __('Teman', 'pedagog'), // Rename these to suit
+      'singular_name' => __('Tema', 'pedagog'),
+      'add_new' => __('Skapa ny', 'pedagog'),
+      'add_new_item' => __('Skapa nytt tema', 'pedagog'),
+      'edit' => __('Redigera', 'pedagog'),
+      'edit_item' => __('Redigera tema', 'pedagog'),
+      'new_item' => __('Nytt tema', 'pedagog'),
+      'view' => __('Visa tema', 'pedagog'),
+      'view_item' => __('Visa tema', 'pedagog'),
+      'search_items' => __('Sök teman', 'pedagog'),
+      'not_found' => __('Inga teman hittade', 'pedagog'),
+      'not_found_in_trash' => __('Inga teman hittade i papperskorgen', 'pedagog')
+    ),
+    'public' => true,
+    'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
+    'has_archive' => true,
+    'capability_type'    => 'page',
+    'supports' => array(
+      'title',
+      'editor',
+      'excerpt',
+      'thumbnail'
+    ), // Go to Dashboard Custom HTML5 Blank post for supports
+    'can_export' => true, // Allows export in Tools > Export
+    'taxonomies' => array(
+      'post_tag',
+      'category'
+    ) // Add Category and Post Tags support
+  ));
 }
 
 /*------------------------------------*\
@@ -632,18 +640,17 @@ function create_post_type_pedagog_tema() {
 \*------------------------------------*/
 
 // Shortcode Demo with Nested Capability
-function html5_shortcode_demo($atts, $content = null)
-{
-    return '<div class="shortcode-demo">' . do_shortcode($content) . '</div>'; // do_shortcode allows for nested Shortcodes
+function html5_shortcode_demo($atts, $content = null) {
+  return '<div class="shortcode-demo">' . do_shortcode($content) . '</div>'; // do_shortcode allows for nested Shortcodes
 }
 
 // Shortcode Demo with simple <h2> tag
-function html5_shortcode_demo_2($atts, $content = null) // Demo Heading H2 shortcode, allows for nesting within above element. Fully expandable.
-{
-    return '<h2>' . $content . '</h2>';
+function html5_shortcode_demo_2($atts, $content = null) { // Demo Heading H2 shortcode, allows for nesting within above element. Fully expandable.
+  return '<h2>' . $content . '</h2>';
 }
 
 add_filter( 'the_content', 'remove_empty_p', 20, 1 );
+
 function remove_empty_p( $content ){
   // clean up p tags around block elements
   $content = preg_replace( array(
@@ -662,9 +669,4 @@ function remove_empty_p( $content ){
 
   return preg_replace('#<p>(\s|&nbsp;)*+(<br\s*/*>)*(\s|&nbsp;)*</p>#i', '', $content);
 }
-
-require_once('custom/comments.php');
-require_once('custom/comment_form.php');
-require_once('custom/tinymce.php');
-require_once('custom/yarpp.php');
 ?>

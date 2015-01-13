@@ -10,7 +10,7 @@ get_header(); ?>
       <div class="container">
         <div class="row">
           <div class="col-sm-12">
-            <?php $authors = $wpdb->get_results("SELECT users.ID, users.user_login FROM users WHERE users.user_login != 'admin' ORDER BY users.display_name");
+            <?php $authors = get_from_db('authors');
             foreach ($authors as $author): ?>
               <?php $number_of_posts = count_user_posts( $author->ID ); ?>
               <?php if($number_of_posts > 0 ) : ?>

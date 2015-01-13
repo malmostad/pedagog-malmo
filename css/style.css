@@ -1614,7 +1614,7 @@ h3.body-copy.label {
       padding: 0; } }
 
 .single-content {
-  background: white;
+  background: #ffffff;
   padding: 15px; }
   .single-content iframe, .single-content video {
     width: 100%; }
@@ -1669,12 +1669,12 @@ h3.body-copy.label {
   margin: 0; }
 
 .single-with-bg h1 {
-  color: white; }
+  color: #ffffff; }
 .single-with-bg .single-meta {
-  color: white;
+  color: #ffffff;
   padding-bottom: 3em; }
   .single-with-bg .single-meta * {
-    color: white; }
+    color: #ffffff; }
 .single-with-bg .single-bg-splash {
   position: absolute;
   margin: 1%;
@@ -2042,7 +2042,7 @@ h3.body-copy.label {
 
 .tema-description {
   padding: 1.5em 1.5em 1.5em;
-  color: white;
+  color: #ffffff;
   bottom: 0;
   background: #333333; }
   @media (min-width: 768px) {
@@ -2060,7 +2060,7 @@ h3.body-copy.label {
     .tema-description .post-label a  {
       color: #333333; }
   .tema-description a {
-    color: white; }
+    color: #ffffff; }
 
 .tema-posts {
   border: 1px solid #eeeeee;
@@ -2195,7 +2195,8 @@ h3.body-copy.label {
   text-transform: uppercase;
   height: 50px;
   line-height: 50px;
-  padding: 0 1.125em; }
+  padding: 0 1.125em;
+  clear: both; }
   .calendar-widget-header span {
     float: right; }
   .calendar-widget-header h3 {
@@ -2438,7 +2439,7 @@ h3.body-copy.label {
     background: #f8f8f8; }
 
 .dots:hover {
-  background: white; }
+  background: #ffffff; }
 
 .comments ul {
   padding: 0;
