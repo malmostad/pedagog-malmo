@@ -1,6 +1,6 @@
 .pagination-wrapper {
   display: block;
-  text-align: center;
+  margin: 0 auto;
   font-family: $secondary-font;
   .current {
     background: $off-white;
@@ -10,6 +10,16 @@
   }
   .next {
     border-radius: 0 3px 3px 0;
+  }
+}
+.search {
+  .pagination-wrapper {
+    max-width: 100%;
+    padding-left: 0.5em;
+    @include breakpoint($bp-medium) {
+      max-width: 75%;
+      padding-left: 0;
+    }
   }
 }
 .page-numbers {
@@ -25,4 +35,8 @@
   &:hover {
     background: $white;
   }
+}
+//Tubepress pagination style override.
+div.tubepress_container div.pagination {
+  text-align: left;
 }

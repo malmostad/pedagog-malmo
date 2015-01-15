@@ -2421,7 +2421,7 @@ h3.body-copy.label {
 
 .pagination-wrapper {
   display: block;
-  text-align: center;
+  margin: 0 auto;
   font-family: OpenSans, "Droid Sans", Verdana, "DejaVu Sans", "Bitstream Vera Sans", sans-serif; }
   .pagination-wrapper .current {
     background: #f8f8f8; }
@@ -2429,6 +2429,14 @@ h3.body-copy.label {
     border-radius: 3px 0 0 3px; }
   .pagination-wrapper .next {
     border-radius: 0 3px 3px 0; }
+
+.search .pagination-wrapper {
+  max-width: 100%;
+  padding-left: 0.5em; }
+  @media (min-width: 768px) {
+    .search .pagination-wrapper {
+      max-width: 75%;
+      padding-left: 0; } }
 
 .page-numbers {
   border: 1px solid #eeeeee;
@@ -2440,6 +2448,9 @@ h3.body-copy.label {
 
 .dots:hover {
   background: #ffffff; }
+
+div.tubepress_container div.pagination {
+  text-align: left; }
 
 .comments ul {
   padding: 0;
