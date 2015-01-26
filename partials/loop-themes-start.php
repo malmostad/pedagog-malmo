@@ -16,7 +16,7 @@
                 </div>
               </div>
               <div class="tema-posts">
-                <?php 
+                <?php
                 if( have_rows('tema_posts') ):
                   while ( have_rows('tema_posts') ) : the_row();
                     get_template_part( 'partials/tema', get_row_layout() );
@@ -30,6 +30,5 @@
       <?php endif; ?>
     <?php endwhile;?>
   <?php else: ?>
-    <h1>Nä, nu har något blivit väldigt fel</h1>
   <?php endif; ?>
-</div><!-- /container -->
+</div>

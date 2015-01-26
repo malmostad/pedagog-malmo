@@ -1,6 +1,4 @@
 <?php if (have_posts()): while (have_posts()) : the_post(); ?>
-
-  <!-- article -->
   <article id="post-<?php the_ID(); ?>" <?php post_class('loop-item loop-item--tema'); ?>>
     <?php if ( has_post_thumbnail()) : // Check if thumbnail exists ?>
       <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
@@ -19,16 +17,9 @@
         </div>
       </div>
   </article>
-  <!-- /article -->
-
 <?php endwhile; ?>
-
 <?php else: ?>
-
-  <!-- article -->
   <article>
-    <h2><?php _e( 'Sorry, nothing to display.', 'pedagog' ); ?></h2>
+    <h2 class="meta--center"><?php _e( 'Det finns inga teman ännu.', 'pedagog' ); ?></h2>
   </article>
-  <!-- /article -->
-
 <?php endif; ?>
