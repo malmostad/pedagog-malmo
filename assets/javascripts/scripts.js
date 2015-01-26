@@ -54,8 +54,10 @@
 
       //Close mobile menu dropdown if click is outside of the submenu.
       $(document).on('click', function (e) {
-        if (!_.$subMenu.is(e.target) && _.$subMenu.has(e.target).length === 0) {
-          _.$subMenu.hide();
+        if ($(window).width() <= 768) {
+          if (!_.$subMenu.is(e.target) && _.$subMenu.has(e.target).length === 0) {
+            _.$subMenu.hide();
+          }
         }
       });
 
