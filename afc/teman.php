@@ -23,7 +23,7 @@ if(function_exists("register_field_group"))
       ),
       array (
         'key' => 'field_54943dfc01ec9',
-        'label' => 'Tema överskrift',
+        'label' => 'Rubrik för temat',
         'name' => 'tema_header',
         'type' => 'text',
         'default_value' => '',
@@ -38,7 +38,7 @@ if(function_exists("register_field_group"))
         'label' => 'Temabeskrivning',
         'name' => 'tema_description',
         'type' => 'textarea',
-        'instructions' => 'Beskrivning för temat håll under XXX',
+        'instructions' => 'Lite längre beskrivning som visas under rubriken',
         'default_value' => '',
         'placeholder' => '',
         'maxlength' => '',
@@ -50,7 +50,7 @@ if(function_exists("register_field_group"))
         'label' => 'Temabild',
         'name' => 'tema_image',
         'type' => 'image',
-        'instructions' => 'Bilden skall vara minst XXXX och helst XXXX.',
+        'instructions' => 'Bilden skall vara minst 1024x768 pixlar',
         'required' => 1,
         'save_format' => 'object',
         'preview_size' => 'thumbnail',
@@ -61,7 +61,7 @@ if(function_exists("register_field_group"))
         'label' => 'Temaposter',
         'name' => 'tema_posts',
         'type' => 'flexible_content',
-        'instructions' => 'Välj innehåll lorem ipsum....',
+        'instructions' => 'Klicka på "Add Row" och välj mellan de fyra olika utvisningsalternativen',
         'required' => 1,
         'layouts' => array (
           array (
