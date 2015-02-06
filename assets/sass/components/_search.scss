@@ -8,10 +8,15 @@
   h3 {
     margin: 0;
     line-height: 40px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     padding-top: 0.5em;
+    padding-right: 1em;
     @include breakpoint($bp-medium) {
       line-height: 80px;
       padding-top: 0;
+      padding-right: 0;
     }
   }
 }
