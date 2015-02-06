@@ -418,6 +418,9 @@ function get_sub_header_text() {
   }elseif(!empty($theme_blog[0]->name)){
     echo '<a class="button__back" href="/bloggar"></a><a href="' . get_bloginfo('url') . '/theme_blog/' . $theme_blog[0]->slug . '">' . $theme_blog[0]->name . '</a>';
   }elseif ( is_post_type_archive('artiklar') || get_post_type() == 'artiklar' || is_post_type_archive('tema') || is_tax( 'artikelkategorier' ) ) {
+    if (!is_post_type_archive('artiklar')) {
+      echo '<a class="button__back" href="/artiklar"></a>';
+    }
     echo '<a href="/artiklar">Artiklar & Teman</a>';
     echo '<a class="rss-feed" href="/artiklar/feed"></a>';
   }elseif ( $wp_query->query['post_type'] == 'post' || $wp_query->query['pagename'] == 'temabloggar' || $wp_query->query['pagename'] == 'bloggare' || isset($wp_query->query['category_name']) || is_singular('post') ) {
