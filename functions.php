@@ -39,8 +39,8 @@ if (function_exists('add_theme_support')) {
   add_theme_support('post-thumbnails');
   // WYSIWYG SIZES
   add_image_size('large', 750, '', false); // Large Thumbnail
-  add_image_size('medium', 236, 150, true); // Medium Thumbnail
-  add_image_size('small', 120, '', true); // Small Thumbnail
+  add_image_size('medium', 375, '', true); // Medium Thumbnail
+  add_image_size('small', 187, '', true); // Small Thumbnail
   // THEME SIZES
   add_image_size('article-front', 768, 768, true);
 
