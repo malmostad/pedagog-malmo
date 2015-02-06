@@ -1,4 +1,4 @@
-.widget_most_commented_widget, .widget_recent_comments {
+.widget_most_commented_widget, .widget_recent_comments, .tribe-events-list-widget {
   margin-top: 1em;
   border: 1px solid $border-grey;
   h3 {
@@ -10,7 +10,7 @@
     padding: 0 1.125em;
     text-transform: uppercase;
   }
-  ul {
+  ul, ol {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -23,5 +23,21 @@
     &:hover {
       background: $off-white;
     }
+  }
+}
+.tribe-events-list-widget {
+  margin: 0;
+  padding: 0;
+  ol li {
+    margin-bottom: 0;
+  }
+  .duration {
+    font-weight: normal;
+  }
+  .tribe-events-widget-link {
+    padding-left: 1em;
+    padding-top: 1em;
+
+
   }
 }
