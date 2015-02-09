@@ -275,15 +275,19 @@ function pedagoggravatar ($avatar_defaults) {
  * @param  [type] $excerpt [description]
  * @return [type]          [description]
  */
-function pedagog_custom_excerpt($text, $excerpt){
+function pedagog_custom_excerpt($text, $excerpt ,$length){
   if ($excerpt) return $excerpt;
+
+  if(!$length) {
+    $length = 30;
+  }
 
   $text = strip_shortcodes( $text );
 
   $text = apply_filters('the_content', $text);
   $text = str_replace(']]>', ']]&gt;', $text);
   $text = strip_tags($text);
-  $excerpt_length = apply_filters('excerpt_length', 30);
+  $excerpt_length = apply_filters('excerpt_length', $length);
   $excerpt_more = apply_filters('excerpt_more', ' ' . '[...]');
   $words = preg_split("/[\n\r\t ]+/", $text, $excerpt_length + 1, PREG_SPLIT_NO_EMPTY);
   if ( count($words) > $excerpt_length ) {

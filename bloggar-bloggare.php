@@ -22,7 +22,10 @@ get_header(); ?>
                   </div>
                   <div class="col-xs-9 theme-blog-info content body-copy">
                     <h2><a href="<?php echo get_bloginfo('url') ?>/author/<?php the_author_meta('user_nicename', $author->ID); ?>"><?php echo author_name($author->ID ) ?></a></h2>
-                    <?php echo wpautop( get_the_author_meta('description', $author->ID) ); ?>
+                    <?php $the_description = wpautop( get_the_author_meta('description', $author->ID) ); ?>
+                    <p>
+                      <?php echo pedagog_custom_excerpt($the_description, false, 70); ?>
+                    </p>
                     <div class="meta">
                       <p><?php echo $number_of_posts ?> inlägg</p>
                     </div>

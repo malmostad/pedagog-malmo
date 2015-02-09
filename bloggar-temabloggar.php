@@ -27,7 +27,10 @@ get_header(); ?>
                   </div>
                   <div class="col-xs-9 theme-blog-info content body-copy">
                     <h2><a href="<?php echo get_bloginfo('url') ?>/theme_blog/<?php echo $theme_blog->slug ?>"><?php echo $theme_blog->name ?></a></h2>
-                    <p><?php echo $theme_blog->description ?></p>
+                    <?php $the_description = $theme_blog->description; ?>
+                    <p>
+                      <?php echo pedagog_custom_excerpt($the_description, false, 70); ?>
+                    </p>
                     <div class="meta">
                       <p><?php echo $theme_blog->count ?> inlägg</p>
                     </div>

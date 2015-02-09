@@ -80,7 +80,7 @@ p code, li code {
   clear: both;
   position: relative;
   padding: 1em 0 0;
-  background: whitesmoke;
+  background: #f5f5f5;
   border: 1px solid #ccc;
   margin-bottom: 2em;
   overflow: auto; }

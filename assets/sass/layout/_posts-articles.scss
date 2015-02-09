@@ -131,8 +131,14 @@
 //Temabloggar
 .blog-item {
   margin: 0.5em;
+  .meta {
+    position: absolute;
+    bottom: 1em;
+  }
 }
 .blog-image {
+  max-height: 250px;
+  overflow: hidden;
   img {
     height: 100%;
   }

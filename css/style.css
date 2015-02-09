@@ -1590,11 +1590,17 @@ h3.body-copy.label {
 
 .blog-item {
   margin: 0.5em; }
+  .blog-item .meta, .blog-item .meta-author, .blog-item .tribe-events-list-widget p, .tribe-events-list-widget .blog-item p, .blog-item .comments .form-allowed-tags, .comments .blog-item .form-allowed-tags, .blog-item .comment-author, .blog-item .unsubscribe {
+    position: absolute;
+    bottom: 1em; }
 
-.blog-image img {
-  height: 100%; }
-.blog-image .temablogg-name {
-  position: absolute; }
+.blog-image {
+  max-height: 250px;
+  overflow: hidden; }
+  .blog-image img {
+    height: 100%; }
+  .blog-image .temablogg-name {
+    position: absolute; }
 
 .single h1 {
   font-size: 41px;
