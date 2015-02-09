@@ -506,6 +506,43 @@ function pedagog_set_post_views($postID) {
 //To keep the count accurate, lets get rid of prefetching
 remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
 
+/**
+ * Remove capabilities from authors.
+ */
+function wpcodex_set_capabilities() {
+  $editor = get_role( 'author' );
+  $caps = array(
+    'publish_tribe_events',
+    'publish_tribe_organizers',
+    'publish_tribe_venues',
+    'read_tribe_event',
+    'read_tribe_organizer',
+    'read_tribe_venue',
+    'delete_published_tribe_events',
+    'delete_published_tribe_organizers',
+    'delete_published_tribe_venues',
+    'delete_tribe_event',
+    'delete_tribe_events',
+    'delete_tribe_organizer',
+    'delete_tribe_organizers',
+    'delete_tribe_venue',
+    'delete_tribe_venues',
+    'edit_published_tribe_events',
+    'edit_published_tribe_organizers',
+    'edit_published_tribe_venues',
+    'edit_tribe_event',
+    'edit_tribe_events',
+    'edit_tribe_organizer',
+    'edit_tribe_organizers',
+    'edit_tribe_venue',
+    'edit_tribe_venues',
+  );
+  foreach ( $caps as $cap ) {
+    $editor->remove_cap( $cap );
+  }
+}
+//Remove Events from the toolbar
+define('TRIBE_DISABLE_TOOLBAR_ITEMS', true);
 /*------------------------------------*\
 	Actions + Filters + ShortCodes
 \*------------------------------------*/
@@ -520,6 +557,9 @@ add_action('init', 'create_post_type_pedagog_article'); // Add our HTML5 Blank C
 add_action('init', 'create_post_type_pedagog_tema'); // Add our HTML5 Blank Custom Post Type
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
 add_action('init', 'html5wp_pagination'); // Add our HTML5 Pagination
+if ( is_user_logged_in() ) {
+  add_action( 'init', 'wpcodex_set_capabilities' );
+}
 
 // Remove Actions
 remove_action('wp_head', 'feed_links_extra', 3); // Display the links to the extra feeds such as category feeds
