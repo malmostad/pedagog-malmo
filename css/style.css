@@ -1476,10 +1476,10 @@ h3.body-copy.label {
   position: fixed; }
 
 .admin-bar #malmo-masthead {
-  top: 45px; }
+  top: 46px; }
   @media (min-width: 783px) {
     .admin-bar #malmo-masthead {
-      top: 30px; } }
+      top: 32px; } }
 
 .articles-list, .blogs-list {
   border: 1px solid #eeeeee; }
