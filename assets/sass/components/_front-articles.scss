@@ -22,15 +22,20 @@
   @include breakpoint($bp-medium) {
     display: flex;
     flex-wrap: wrap;
+    margin-top: 0.5em;
+    .meta {
+      position: absolute;
+      bottom: 0.5em;
+    }
   }
 }
 .front-article-small {
   border-left: 1px solid $border-grey;
   border-right: 1px solid $border-grey;
   border-bottom: 1px solid $border-grey;
-  padding: 2em 1.5em;
+  margin-left: 0.5em;
   &:first-of-type {
-    border-right: none;
+  margin-left: 0;
   }
   @include breakpoint($bp-medium) {
     flex: 1;
@@ -46,6 +51,8 @@
   }
 }
 .no-flexbox .front-article-small {
-  //Set fixed min-height for browsers without flexbox - might need tweaking.
-  min-height: 400px;
+  margin-left: 0;
+  @include breakpoint($bp-medium) {
+    max-width: 33%;
+  }
 }

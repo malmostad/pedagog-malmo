@@ -1958,15 +1958,19 @@ h3.body-copy.label {
     display: flex;
     -webkit-flex-wrap: wrap;
         -ms-flex-wrap: wrap;
-            flex-wrap: wrap; } }
+            flex-wrap: wrap;
+    margin-top: 0.5em; }
+    .front-article-small-wrapper .meta, .front-article-small-wrapper .meta-author, .front-article-small-wrapper .tribe-events-list-widget p, .tribe-events-list-widget .front-article-small-wrapper p, .front-article-small-wrapper .comments .form-allowed-tags, .comments .front-article-small-wrapper .form-allowed-tags, .front-article-small-wrapper .comment-author, .front-article-small-wrapper .unsubscribe {
+      position: absolute;
+      bottom: 0.5em; } }
 
 .front-article-small {
   border-left: 1px solid #eeeeee;
   border-right: 1px solid #eeeeee;
   border-bottom: 1px solid #eeeeee;
-  padding: 2em 1.5em; }
+  margin-left: 0.5em; }
   .front-article-small:first-of-type {
-    border-right: none; }
+    margin-left: 0; }
   @media (min-width: 768px) {
     .front-article-small {
       -webkit-flex: 1;
