@@ -14,6 +14,7 @@
       _.$subMenu = $('.sub-menu');
       _.$filterCategories = $('.filter-categories');
       _.$archiveCategories = $('.archive-categories');
+      _.$stickyHeader = $('#sticky-header');
       _.categoryFilter = false;
       _.pageNumber = 1;
       //Init FastClick
@@ -29,6 +30,7 @@
 
       _.responsiveMenu();
       _.filterToggle();
+      _.stickyHeader();
 
       return this;
     },
@@ -71,6 +73,19 @@
         $(this).next(_.$archiveCategories).slideToggle(150);
       });
 
+      return this;
+    },
+    stickyHeader: function() {
+      var _ = this;
+      var stickyRevealHeight = 178;
+
+      $(window).scroll(function () {
+        if ($(window).scrollTop() > stickyRevealHeight) {
+          _.$stickyHeader.removeClass('sticky-header--hidden');
+        } else {
+          _.$stickyHeader.addClass('sticky-header--hidden');
+        }
+      });
       return this;
     }
   };

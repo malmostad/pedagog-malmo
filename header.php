@@ -20,6 +20,7 @@
     <script src="https://apis.google.com/js/platform.js" async defer>{lang: 'sv'}</script>
 	</head>
 	<body <?php body_class(); ?>>
+    <?php get_template_part('partials/sticky-header'); ?>
 		<header class="header clear" role="banner">
       <div class="wrapper-inner container">
         <div class="row">

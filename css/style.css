@@ -1562,7 +1562,7 @@ h3.body-copy.label {
   position: absolute;
   font-family: OpenSans, "Droid Sans", Verdana, "DejaVu Sans", "Bitstream Vera Sans", sans-serif;
   font-weight: bold;
-  z-index: 100;
+  z-index: 50;
   text-transform: uppercase;
   font-size: 11px;
   font-size: 0.6875rem;
@@ -1982,7 +1982,10 @@ h3.body-copy.label {
   transition: all .2s; }
 
 .no-flexbox .front-article-small {
-  min-height: 400px; }
+  margin-left: 0; }
+  @media (min-width: 768px) {
+    .no-flexbox .front-article-small {
+      max-width: 33%; } }
 
 @media (min-width: 768px) {
   .front-blog-posts {
@@ -2621,3 +2624,65 @@ div.tubepress_container div.pagination {
       padding: 1em 0.5em;
       width: 166px;
       height: 141px; }
+
+.sticky-header-wrapper {
+  position: fixed;
+  width: 100%;
+  background: #ffffff;
+  border-bottom: 1px solid #eeeeee;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+  z-index: 99;
+  height: 50px;
+  transition-duration: .5s;
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition-property: -webkit-transform;
+  transition-property: transform; }
+
+.sticky-header {
+  max-width: 1024px;
+  margin: 0 auto; }
+  .sticky-header .logo-img {
+    display: none;
+    position: relative;
+    height: 20px;
+    top: 15px;
+    left: 0.5em;
+    float: left; }
+    @media (min-width: 1024px) {
+      .sticky-header .logo-img {
+        display: block; } }
+  .sticky-header .main-nav {
+    padding-top: 0; }
+    @media (min-width: 768px) {
+      .sticky-header .main-nav {
+        float: left; } }
+    @media (min-width: 1024px) {
+      .sticky-header .main-nav {
+        margin-left: 2em; } }
+  .sticky-header .search-area {
+    padding: 0.25em 0 0 0;
+    margin-right: 1em;
+    display: none; }
+    @media (min-width: 768px) {
+      .sticky-header .search-area {
+        display: block; } }
+    .sticky-header .search-area .search-input {
+      font-size: 16px;
+      font-size: 1rem; }
+      @media (min-width: 768px) {
+        .sticky-header .search-area .search-input {
+          width: 140px;
+          font-size: 12px;
+          font-size: 0.75rem; } }
+      @media (min-width: 1024px) {
+        .sticky-header .search-area .search-input {
+          width: auto;
+          font-size: 16px;
+          font-size: 1rem; } }
+
+.sticky-header--hidden {
+  -webkit-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+          transform: translateY(-100%); }
+  .sticky-header--hidden .main-nav .sub-menu {
+    visibility: hidden; }
