@@ -1590,7 +1590,7 @@ h3.body-copy.label {
 
 .blog-item {
   margin: 0.5em; }
-  .blog-item .meta, .blog-item .meta-author, .blog-item .tribe-events-list-widget p, .tribe-events-list-widget .blog-item p, .blog-item .comments .form-allowed-tags, .comments .blog-item .form-allowed-tags, .blog-item .comment-author, .blog-item .unsubscribe {
+  .blog-item .meta, .blog-item .meta-author, .blog-item .comments .form-allowed-tags, .comments .blog-item .form-allowed-tags, .blog-item .comment-author, .blog-item .unsubscribe, .blog-item .tribe-events-list-widget p, .tribe-events-list-widget .blog-item p {
     position: absolute;
     bottom: 1em; }
 
@@ -1960,7 +1960,7 @@ h3.body-copy.label {
         -ms-flex-wrap: wrap;
             flex-wrap: wrap;
     margin-top: 0.5em; }
-    .front-article-small-wrapper .meta, .front-article-small-wrapper .meta-author, .front-article-small-wrapper .tribe-events-list-widget p, .tribe-events-list-widget .front-article-small-wrapper p, .front-article-small-wrapper .comments .form-allowed-tags, .comments .front-article-small-wrapper .form-allowed-tags, .front-article-small-wrapper .comment-author, .front-article-small-wrapper .unsubscribe {
+    .front-article-small-wrapper .meta, .front-article-small-wrapper .meta-author, .front-article-small-wrapper .comments .form-allowed-tags, .comments .front-article-small-wrapper .form-allowed-tags, .front-article-small-wrapper .comment-author, .front-article-small-wrapper .unsubscribe, .front-article-small-wrapper .tribe-events-list-widget p, .tribe-events-list-widget .front-article-small-wrapper p {
       position: absolute;
       bottom: 0.5em; } }
 
@@ -2007,7 +2007,8 @@ h3.body-copy.label {
   padding-left: 1.125em; }
   .front-blog-header h3 {
     font-size: 12px;
-    font-size: 0.75rem; }
+    font-size: 0.75rem;
+    margin: 0; }
 
 .temablogg-name {
   display: inline-block;
@@ -2126,22 +2127,22 @@ h3.body-copy.label {
     .flexbox .border-flex:last-child {
       border-left: 1px solid #eeeeee; } }
 
-.meta, .meta-author, .tribe-events-list-widget p, .comments .form-allowed-tags, .comment-author, .unsubscribe {
+.meta, .meta-author, .comments .form-allowed-tags, .comment-author, .unsubscribe, .tribe-events-list-widget p {
   font-family: OpenSans, "Droid Sans", Verdana, "DejaVu Sans", "Bitstream Vera Sans", sans-serif;
   font-size: 12px;
   font-size: 0.75rem;
   text-transform: uppercase;
   color: #999999;
   line-height: 1.5; }
-  .meta p, .meta-author p, .tribe-events-list-widget p p, .comments .form-allowed-tags p, .comment-author p, .unsubscribe p {
+  .meta p, .meta-author p, .comments .form-allowed-tags p, .comment-author p, .unsubscribe p, .tribe-events-list-widget p p {
     font-size: 12px;
     font-size: 0.75rem;
     line-height: inherit; }
-    .meta p:last-child, .meta-author p:last-child, .tribe-events-list-widget p p:last-child, .comments .form-allowed-tags p:last-child, .comment-author p:last-child, .unsubscribe p:last-child {
+    .meta p:last-child, .meta-author p:last-child, .comments .form-allowed-tags p:last-child, .comment-author p:last-child, .unsubscribe p:last-child, .tribe-events-list-widget p p:last-child {
       margin-bottom: 0; }
-  .meta a, .meta-author a, .tribe-events-list-widget p a, .comments .form-allowed-tags a, .comment-author a, .unsubscribe a {
+  .meta a, .meta-author a, .comments .form-allowed-tags a, .comment-author a, .unsubscribe a, .tribe-events-list-widget p a {
     color: #999999; }
-  .meta img, .meta-author img, .tribe-events-list-widget p img, .comments .form-allowed-tags img, .comment-author img, .unsubscribe img {
+  .meta img, .meta-author img, .comments .form-allowed-tags img, .comment-author img, .unsubscribe img, .tribe-events-list-widget p img {
     border-radius: 50%;
     margin-right: 1px; }
 
@@ -2199,56 +2200,6 @@ h3.body-copy.label {
 @media (min-width: 768px) {
   .sidebar {
     padding-left: 0.5em; } }
-
-.calendar-widget-header {
-  position: relative;
-  background: #9dcee0;
-  font-family: OpenSans, "Droid Sans", Verdana, "DejaVu Sans", "Bitstream Vera Sans", sans-serif;
-  font-weight: bold;
-  text-transform: uppercase;
-  height: 50px;
-  line-height: 50px;
-  padding: 0 1.125em;
-  clear: both; }
-  .calendar-widget-header span {
-    float: right; }
-  .calendar-widget-header h3 {
-    font-size: 12px;
-    font-size: 0.75rem; }
-
-.tribe-events-list-widget {
-  padding: 1.125em 1.125em 0.25em;
-  font-family: OpenSans, "Droid Sans", Verdana, "DejaVu Sans", "Bitstream Vera Sans", sans-serif;
-  border: 1px solid #eeeeee; }
-
-.widget_tubepress {
-  margin-top: 1em;
-  border-top: 1px solid #eeeeee;
-  border-left: 1px solid #eeeeee;
-  border-right: 1px solid #eeeeee; }
-  .widget_tubepress h3 {
-    font-size: 12px;
-    font-size: 0.75rem;
-    font-family: OpenSans, "Droid Sans", Verdana, "DejaVu Sans", "Bitstream Vera Sans", sans-serif;
-    background: #d798bf;
-    margin: 0;
-    font-weight: bold;
-    text-transform: uppercase;
-    height: 50px;
-    line-height: 50px;
-    padding: 0 1.125em; }
-
-.tubepress_sidebar {
-  border-left: 1px solid #eeeeee;
-  border-right: 1px solid #eeeeee;
-  border-bottom: 1px solid #eeeeee; }
-  .tubepress_sidebar .tubepress_thumb {
-    float: left;
-    width: 50%; }
-    .tubepress_sidebar .tubepress_thumb img {
-      padding: 1em 0.5em;
-      width: 166px;
-      height: 141px; }
 
 .filter-area {
   font-size: 14px;
@@ -2602,8 +2553,9 @@ div.tubepress_container div.pagination {
   padding-top: 0.5em; }
 
 .widget_most_commented_widget, .widget_recent_comments, .tribe-events-list-widget {
-  margin-top: 1em;
-  border: 1px solid #eeeeee; }
+  border: 1px solid #eeeeee;
+  clear: both;
+  margin-bottom: 1em; }
   .widget_most_commented_widget h3, .widget_recent_comments h3, .tribe-events-list-widget h3 {
     margin: 0;
     font-size: 12px;
@@ -2627,8 +2579,12 @@ div.tubepress_container div.pagination {
       background: #f8f8f8; }
 
 .tribe-events-list-widget {
-  margin: 0;
-  padding: 0; }
+  margin: 0 0 1em 0;
+  padding: 0;
+  font-family: OpenSans, "Droid Sans", Verdana, "DejaVu Sans", "Bitstream Vera Sans", sans-serif;
+  border: 1px solid #eeeeee; }
+  .tribe-events-list-widget h3 {
+    background: #9dcee0; }
   .tribe-events-list-widget ol li {
     margin-bottom: 0; }
   .tribe-events-list-widget .duration {
@@ -2636,3 +2592,32 @@ div.tubepress_container div.pagination {
   .tribe-events-list-widget .tribe-events-widget-link {
     padding-left: 1em;
     padding-top: 1em; }
+
+.widget_tubepress {
+  border-top: 1px solid #eeeeee;
+  border-left: 1px solid #eeeeee;
+  border-right: 1px solid #eeeeee; }
+  .widget_tubepress h3 {
+    font-size: 12px;
+    font-size: 0.75rem;
+    font-family: OpenSans, "Droid Sans", Verdana, "DejaVu Sans", "Bitstream Vera Sans", sans-serif;
+    background: #d798bf;
+    margin: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 1.125em; }
+
+.tubepress_sidebar {
+  border-left: 1px solid #eeeeee;
+  border-right: 1px solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
+  margin-bottom: 1em; }
+  .tubepress_sidebar .tubepress_thumb {
+    float: left;
+    width: 50%; }
+    .tubepress_sidebar .tubepress_thumb img {
+      padding: 1em 0.5em;
+      width: 166px;
+      height: 141px; }
