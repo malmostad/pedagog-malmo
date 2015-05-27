@@ -18,8 +18,14 @@
   }
 }
 //Override Tubepress plugin style to make embedded viedeos responsive.
-.tubepress_normal_embedded_wrapper {
+.tubepress_normal_embedded_wrapper, .tubepress-static-player {
   max-width: 100% !important;
+}
+.tubepress-pagination-and-thumbs {
+  margin-top: 5px;
+}
+.tubepress-thumb {
+  margin-right: 0;
 }
 .tubepress_container {
   font-family: $secondary-font;
